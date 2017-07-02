@@ -5,7 +5,7 @@
 #define OFF 0
 
 //Motor Drive
-# define MAX_SPEED 220 // 70% of top speed ==> 256
+# define MAX_SPEED 256 // top speed ==> 256 Default: 220
 # define MIN_SPEED 70 
 
 int motorSpeed = 100;

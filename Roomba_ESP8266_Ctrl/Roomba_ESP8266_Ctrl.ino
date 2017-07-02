@@ -91,6 +91,7 @@ void setup()
 void loop()
 {
   server.handleClient();
+  manualCmd();
 }
 
 void handleRoot() {
@@ -102,11 +103,16 @@ void handleRoot() {
         String d = server.arg(i);
         writeLEDs(d[0], d[1], d[2], d[3]);
         server.send(200, "text/plain", "Text Sended!\nMessage: " + server.arg(i));
-      } else if (server.argName(i) == "cmd")
+      } else if (server.argName(i) == "send")
       {
         int c = server.arg(i).toInt();
         Roomba.write(c);
         server.send(200, "text/plain", "Code sended!\nMessage: " + server.arg(i));
+      }
+      else if (server.argName(i) == "cmd")
+      {
+        command = server.arg(i)[0];
+        server.send(200, "text/plain", "Command sended!\nMessage: " + server.arg(i));
       }
     }
   else
