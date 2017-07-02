@@ -13,9 +13,8 @@ int motorSpeed = 100;
 char command = 0; // variable to store command received from IR or BT remote control
 char state = 0;
 
-int buttonPin = 12;
 int ledPin=13;
-int ddPin=5; //device detect
+int ddPin=15; //device detect
 
 bool debrisLED;
 bool spotLED;

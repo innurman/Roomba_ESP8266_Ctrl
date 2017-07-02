@@ -40,7 +40,7 @@ void startFull()
 This command stops the OI. All streams will stop and the robot will no longer respond to commands. Use this command when you are finished working with the robot. */
 void stop(void)
 {
-  Roomba.write(173);
+  Roomba.write(141);
 }
 
 /*--------------------------------------------------------------------------
