@@ -57,6 +57,11 @@ void seekDock(void)
   Roomba.write(143);
 }
 
+void Clean(void)
+{
+  Roomba.write(136);
+}
+
 /*-----------------------------------------------------
  This command Play song
  [140] [song #] [lenght] [note#] [note duration]

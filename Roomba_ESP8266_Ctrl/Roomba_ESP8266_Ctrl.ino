@@ -71,7 +71,7 @@ void setup()
   });
 
   server.on("/clean", []() {
-    Roomba.write(136);
+    Clean();
     server.send(200, "text/plain", "Clean Send!");
   });
 
@@ -101,8 +101,13 @@ void handleRoot() {
       {
         String d = server.arg(i);
         writeLEDs(d[0], d[1], d[2], d[3]);
-        server.send(200, "text/plain", "Scritta Impostata!\nMessaggio: " + server.arg(i));
-      } break;
+        server.send(200, "text/plain", "Text Sended!\nMessage: " + server.arg(i));
+      } else if (server.argName(i) == "cmd")
+      {
+        int c = server.arg(i).toInt();
+        Roomba.write(c);
+        server.send(200, "text/plain", "Code sended!\nMessage: " + server.arg(i));
+      }
     }
   else
     server.send(200, "text/plain", "Hello from Roomba!");
